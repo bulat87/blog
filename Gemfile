@@ -44,3 +44,5 @@ group :development, :test do
 end
 
 gem 'devise', '~> 3.4.0'
+gem 'slim'
+gem 'bootstrap-sass'
