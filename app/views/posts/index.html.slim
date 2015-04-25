@@ -1,0 +1,8 @@
+h1 Listing Posts
+
+- @posts.each do |post|
+  h2 = link_to post.title, post
+  p = post.content
+  div = post.user_id
+
+= link_to 'New Post', new_post_path, class: "btn btn-default"
