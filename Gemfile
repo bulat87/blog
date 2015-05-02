@@ -53,3 +53,5 @@ end
 gem 'devise', '~> 3.4.0'
 gem 'slim-rails'
 gem 'bootstrap-sass'
+gem 'ckeditor'
+gem 'paperclip'
