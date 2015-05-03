@@ -9,7 +9,7 @@ body
   nav.navbar.navbar-inverse.navbar-fixed-top
     .container
       .navbar-header
-        = link_to "Blog", root_path, class: "navbar-brand"
+        = link_to "Home", root_path, class: "navbar-brand"
       .collapse.navbar-collapse
         ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
@@ -18,8 +18,20 @@ body
           - else
             li = link_to "Sign in", new_user_session_path
             li = link_to "Sign up", new_user_registration_path
+  #masthead
+    .container
+      .row
+        .col-md-7
+          h1 Blog
+          p.lead Subtitle Here
+        .col-md-5
+          .well.well-lg
+            .row
+              .col-sm-12
+                Space
   .container
-    .col-md-8
-      = yield
-    .col-md-4 
-      h2 Right
+    .row
+      .col-md-12
+        .panel
+          .panel-body
+            = yield
