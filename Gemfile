@@ -44,6 +44,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'better_errors'
   gem 'colorize'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'capybara'
 end
 
 group :production do
@@ -55,3 +58,4 @@ gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'ckeditor'
 gem 'paperclip'
+gem 'ipgeobase'

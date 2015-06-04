@@ -1,9 +1,5 @@
 - @post.comments.each do |comment|
-  p.col-md-12
-    .container-fluid
-      p
-        b 
-          = comment.user_id
-      p = comment.content
-  p.col-md-12
-    = link_to "Удалить комментарий", post_comment_path(@post, comment), method: :delete, class: 'btn btn-danger btn-xs'
+  p.col-md-12 data-coment_id="#{comment.id}" data-post_id="#{@post.id}"
+    = comment.content
+    = comment.user_id
+    span.btn.btn-danger.btn-xs.deleteAction Удалить комментарий

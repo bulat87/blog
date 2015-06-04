@@ -15,9 +15,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @post = @comment.post
     @comment.delete
-    redirect_to post_path(@post)
+    render json: { success: true }
   end
 
   private
