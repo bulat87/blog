@@ -1,6 +1,8 @@
 - @post.comments.each do |comment|
   .col-md-12 data-coment_id="#{comment.id}" data-post_id="#{@post.id}"
-    p
+    div
       = comment.content
-      = comment.user_id
-    .btn.btn-danger.btn-xs.deleteAction Удалить комментарий
+    div
+      b Author: #{comment.user.name}
+    - if user_owner(comment)
+      .btn.btn-danger.btn-xs.deleteAction Удалить комментарий
