@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $(".deleteAction").click(function(){
-    var current_comment = $(this).parents('p')[0];
+    var current_comment = $(this).parent('div');
     if(confirm("Удалить комментарий?")){
       $.ajax({
         url: '/posts/' + $(current_comment).attr('data-post_id') + '/comments/' + $(current_comment).attr('data-coment_id'),
