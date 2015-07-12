@@ -1,5 +1,5 @@
 h1 = @post.title
-p = @post.content
+p = @post.content.html_safe
 div = @post.user.name + " " + @post.user.lastname
 - if user_owner(@post)
   div

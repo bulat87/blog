@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     end
   
   end
+
+  namespace :api do
+    resources :posts, only: [:index]
+    resources :comments, only: [:index]
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
