@@ -3,7 +3,8 @@ class Web::PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 3)
+    @search = Post.search(params[:q])
+    @posts = @search.result.paginate(:page => params[:page], :per_page => 3)
   end
 
   def show

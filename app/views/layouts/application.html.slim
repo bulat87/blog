@@ -5,19 +5,20 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    = yield(:search)
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
           = link_to "Home", root_path, class: "navbar-brand"
         .collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            - if user_signed_in?
-              li = link_to "User page", edit_user_registration_path
-              li = link_to "Exit", destroy_user_session_path, :method => :delete
-            - else
-              li = link_to "Sign in", new_user_session_path
-              li = link_to "Sign up", new_user_registration_path
+          = render "web/shared/links"
+          form.navbar-form.navbar-right
+            .form-group
+              = search_form_for @search do |f|
+                = f.text_field :content_cont, class: "form-control", placeholder: "Post search..."
+                = f.submit "Search", class: "btn btn-default"
+
     #masthead
       .container
         .row
@@ -38,3 +39,4 @@ html
 
     footer 
       .container Blog 2015
+      = search_form_for @search do |f|
