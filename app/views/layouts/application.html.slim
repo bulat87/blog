@@ -26,6 +26,11 @@ html
               li = link_to 'New Post', new_post_path, class: "btn btn-default"
               li = link_to 'My posts', my_posts_path, class: "btn btn-default"
             = render "web/shared/search"
+            h2 
+              | Tag cloud
+              #tag_cloud
+                - tag_cloud Post.tag_counts, %w{s m l} do |tag, css_class|
+                  = link_to tag.name, tag_path(tag.name), class: css_class
 footer
   .container
     | Copyright © Blog 

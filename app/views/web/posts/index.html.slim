@@ -12,9 +12,7 @@
       p = truncate(post.content.html_safe, length: 380, omission: '...')
       p = link_to 'Read More', post, class: "btn btn-default"
       p.pull-right
-        span.label.label-default keyword
-        span.label.label-default tag
-        span.label.label-default post
+        span = post.tag_list.map { |t| link_to t, tag_path(t), class: 'label label-default' }.join(" ").html_safe
         ul.list-inline
           li
             i.glyphicon.glyphicon-comment  #{post.comments.count}  Comments

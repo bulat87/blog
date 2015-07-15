@@ -3,8 +3,12 @@ class Web::PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    @search = Post.search(params[:q])
-    @posts = @search.result.paginate(:page => params[:page], :per_page => 3)
+    if params[:tag]
+      @posts = Post.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 3)
+    else
+      @search = Post.search(params[:q])
+      @posts = @search.result.paginate(:page => params[:page], :per_page => 3)
+    end
   end
 
   def show
@@ -57,6 +61,6 @@ class Web::PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :user_id)
+      params.require(:post).permit(:title, :content, :user_id, :tag_list)
     end
 end

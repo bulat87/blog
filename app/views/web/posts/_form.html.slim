@@ -7,6 +7,10 @@
     = f.label :content
     br
     = f.cktext_area :content, class: "form-control"
+  .field
+    = f.label "Tags (separated by commas)"
+    br
+    = f.text_field :tag_list
   br
   .actions
     = f.submit(class: "btn btn-default")
