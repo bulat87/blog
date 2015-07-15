@@ -10,6 +10,10 @@ class Web::PostsController < ApplicationController
   def show
   end
 
+  def my_posts
+    @posts = Post.where(:user_id == current_user.id)
+  end
+
   def new
     @post = Post.new
   end

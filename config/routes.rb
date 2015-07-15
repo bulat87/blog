@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments
     end
+
+    get 'my_posts', to: 'posts#my_posts'
   
   end
 

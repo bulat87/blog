@@ -1,0 +1,6 @@
+- if @search
+  form.navbar-form
+    .form-group
+      = search_form_for @search do |f|
+        = f.text_field :content_cont, class: "form-control", placeholder: "Post search..."
+        = f.button "Search", class: "btn btn-default"

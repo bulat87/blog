@@ -18,8 +18,5 @@
         ul.list-inline
           li
             i.glyphicon.glyphicon-comment  #{post.comments.count}  Comments
-- if user_signed_in?
-  = link_to 'New Post', new_post_path, class: "btn btn-default"
-
 div
   = will_paginate @posts, renderer: BootstrapPagination::Rails
