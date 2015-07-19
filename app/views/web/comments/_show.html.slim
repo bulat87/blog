@@ -4,6 +4,8 @@
       b Comment:
       = comment.content
     div
-      b Author: #{comment.user.name}
+      b Author: 
+      = comment.user.name
+      
     - if user_owner(comment)
       .btn.btn-danger.btn-xs.deleteAction Delete comment

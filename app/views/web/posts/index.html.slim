@@ -4,12 +4,11 @@
     .col-md-2.col-sm-3.text-center
       br
       br
-      p = post.user.name
-      p = post.user.lastname
-      p = post.user.patronymic
+      .avatar
+        = image_tag post.user.avatar.url(:thumb)
     .col-md-10.col-sm-9
       h2 = link_to post.title, post
-      p = truncate(post.content.html_safe, length: 380, omission: '...')
+      p = truncate(post.content.html_safe, length: 280, omission: '...', :escape => false)
       p = link_to 'Read More', post, class: "btn btn-default"
       p.pull-right
         span = post.tag_list.map { |t| link_to t, tag_path(t), class: 'label label-default' }.join(" ").html_safe
